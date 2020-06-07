@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "447777474986",
+    "firebase_url": "https://daily-quotes-flutter.firebaseio.com",
+    "project_id": "daily-quotes-flutter",
+    "storage_bucket": "daily-quotes-flutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447777474986:android:a82b3049649decac3443d3",
+        "android_client_info": {
+          "package_name": "app.dailyquotes.jt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "447777474986-k8c5j97k4nfim9fs14065o54q8reqdhq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.dailyquotes.jt",
+            "certificate_hash": "1b19bcb9b14691d56428aef0732e200ee83d52be"
+          }
+        },
+        {
+          "client_id": "447777474986-vbrieopio95ujs4gt8u5hmn0pm1j90pi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuEHilHlrLFRuPIMJIPLm8-Yf-Ns4jNpY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "447777474986-vbrieopio95ujs4gt8u5hmn0pm1j90pi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
