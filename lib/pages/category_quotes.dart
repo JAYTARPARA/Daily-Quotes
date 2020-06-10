@@ -89,7 +89,7 @@ class _CategoryQuotesState extends State<CategoryQuotes> {
                   scaffoldKey: _scaffoldKey,
                   currentIndex: index,
                   quote: model["content"].toString(),
-                  author: model["author"].toString() == null
+                  author: model["author"] == null
                       ? 'By Unknwon'
                       : "By " + model["author"].toString(),
                   bgColor: _randomColor.randomColor(

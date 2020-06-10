@@ -63,7 +63,7 @@ class _HomePageState extends State<HomePage> {
                     scaffoldKey: _scaffoldKey,
                     currentIndex: index,
                     quote: model["text"].toString(),
-                    author: model["author"].toString() == null
+                    author: model["author"] == null
                         ? 'By Unknwon'
                         : "By " + model["author"].toString(),
                     bgColor: _randomColor.randomColor(
