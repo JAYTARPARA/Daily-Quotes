@@ -13,9 +13,13 @@
 <br/>
 <br/>
 
-<a href="https://play.google.com/store/apps/details?id=app.dailyquotes.jt">
+<a href="https://bit.ly/DailyQuotesFlutter" target="_blank">
  <img alt='Get it on Google Play' src='https://play.google.com/intl/en_gb/badges/images/generic/en_badge_web_generic.png' width="230">
 </a>
+
+<div align="left" style="margin-bottom: 20px;">
+	<h3>Here you can see the demo of the application - <a href="https://youtu.be/tOBycJFvxXw">https://youtu.be/tOBycJFvxXw</a></h3>
+</div>
 
 <div align="left">
     <h3>Features available in the application:</h3>
