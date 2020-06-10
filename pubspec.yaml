@@ -1,5 +1,5 @@
 name: dailyquotes
-description: A new Flutter project.
+description: Daily Quotes - Inspirational Quotes, Inspiration, Quotes, daily quotes, free quotes, quotes images, morning quotes, morning messages, good morning messages.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.0+1
+version: 1.0.1+1
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -45,6 +45,8 @@ dependencies:
   photo_view: ^0.9.2
   firebase_messaging: ^6.0.13
   firebase_in_app_messaging: ^0.1.1+3
+  pull_to_refresh: ^1.5.8
+  in_app_update: ^1.1.11
 
 dev_dependencies:
   flutter_test:

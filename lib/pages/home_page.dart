@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:dailyquotes/pages/saved_page.dart';
+import 'package:dailyquotes/sidebar/sidebar.dart';
 import 'package:double_back_to_close/double_back_to_close.dart';
 import 'package:flutter/material.dart';
 import 'package:dailyquotes/widgets/quote_widget.dart';
@@ -41,29 +42,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: _randomColor.randomColor(
-          colorBrightness: ColorBrightness.dark,
-          colorHue: ColorHue.multiple(
-            colorHues: [ColorHue.orange, ColorHue.blue],
-          ),
-        ),
-        onPressed: () {
-          Navigator.push(
-            context,
-            new MaterialPageRoute(
-              builder: (context) => SavedPage(),
-            ),
-          );
-        },
-        child: Center(
-          child: Icon(
-            Icons.save,
-            size: 30.0,
-          ),
-        ),
-      ),
-      // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      drawer: Sidebar("random"),
       body: DoubleBack(
         message: "Press again to exit",
         child: FutureBuilder<List<dynamic>>(
@@ -83,7 +62,6 @@ class _HomePageState extends State<HomePage> {
                   return QuoteWidget(
                     scaffoldKey: _scaffoldKey,
                     currentIndex: index,
-                    listController: listController,
                     quote: model["text"].toString(),
                     author: model["author"].toString() == null
                         ? 'By Unknwon'

@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:dailyquotes/common/common.dart';
 import 'package:dailyquotes/pages/quote_view.dart';
+import 'package:dailyquotes/sidebar/sidebar.dart';
+import 'package:double_back_to_close/double_back_to_close.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -61,6 +63,7 @@ class _SavedPageState extends State<SavedPage> {
 
     return Scaffold(
       key: _scaffoldKey,
+      drawer: Sidebar("saved"),
       appBar: AppBar(
         title: Text(
           "Saved Quotes",
@@ -71,75 +74,78 @@ class _SavedPageState extends State<SavedPage> {
         ),
         centerTitle: true,
       ),
-      body: quoteList.length == 0
-          ? Container(
-              child: Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 10.0,
-                ),
-                child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        "You have not downloaded any quote yet.",
-                        style: GoogleFonts.lato(
-                          fontSize: 18.0,
+      body: DoubleBack(
+        message: "Press again to exit",
+        child: quoteList.length == 0
+            ? Container(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 10.0,
+                  ),
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          "You have not downloaded any quote yet.",
+                          style: GoogleFonts.lato(
+                            fontSize: 18.0,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
+                  ),
+                ),
+              )
+            : Container(
+                child: Padding(
+                  padding: EdgeInsets.fromLTRB(
+                    8.0,
+                    12.0,
+                    8.0,
+                    8.0,
+                  ),
+                  child: StaggeredGridView.countBuilder(
+                    shrinkWrap: true,
+                    physics: ScrollPhysics(),
+                    itemCount: quoteList.length,
+                    crossAxisCount: 4,
+                    itemBuilder: (context, index) {
+                      String quotePath = quoteList[index];
+                      return InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            new MaterialPageRoute(
+                              builder: (context) => QuoteView(
+                                quotePath,
+                              ),
+                            ),
+                          );
+                        },
+                        child: Hero(
+                          tag: quotePath,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10.0),
+                            ),
+                            child: Image.file(
+                              File(quotePath),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                    staggeredTileBuilder: (i) =>
+                        StaggeredTile.count(2, i.isEven ? 2 : 3),
+                    mainAxisSpacing: 8.0,
+                    crossAxisSpacing: 8.0,
                   ),
                 ),
               ),
-            )
-          : Container(
-              child: Padding(
-                padding: EdgeInsets.fromLTRB(
-                  8.0,
-                  12.0,
-                  8.0,
-                  8.0,
-                ),
-                child: StaggeredGridView.countBuilder(
-                  shrinkWrap: true,
-                  physics: ScrollPhysics(),
-                  itemCount: quoteList.length,
-                  crossAxisCount: 4,
-                  itemBuilder: (context, index) {
-                    String quotePath = quoteList[index];
-                    return InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          new MaterialPageRoute(
-                            builder: (context) => QuoteView(
-                              quotePath,
-                            ),
-                          ),
-                        );
-                      },
-                      child: Hero(
-                        tag: quotePath,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(10.0),
-                          ),
-                          child: Image.file(
-                            File(quotePath),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                    );
-                  },
-                  staggeredTileBuilder: (i) =>
-                      StaggeredTile.count(2, i.isEven ? 2 : 3),
-                  mainAxisSpacing: 8.0,
-                  crossAxisSpacing: 8.0,
-                ),
-              ),
-            ),
+      ),
     );
   }
 }

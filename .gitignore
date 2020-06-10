@@ -9,6 +9,7 @@
 .history
 .svn/
 /Daily Quotes.txt
+/publish details
 
 # IntelliJ related
 *.iml

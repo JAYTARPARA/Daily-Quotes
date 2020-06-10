@@ -1,16 +1,70 @@
-# dailyquotes
+# Daily Quotes - Get Inspired Everyday
 
-A new Flutter project.
+[![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
-## Getting Started
+<div align="center">
+    <img src="assets/images/icon.png" width=200> 
+</div>
 
-This project is a starting point for a Flutter application.
+<h4 align="center">
+ 🥰 Daily Quotes - Get Inspired Everyday ⛅️
+</h4>
 
-A few resources to get you started if this is your first Flutter project:
+<br/>
+<br/>
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+<a href="https://play.google.com/store/apps/details?id=app.dailyquotes.jt">
+ <img alt='Get it on Google Play' src='https://play.google.com/intl/en_gb/badges/images/generic/en_badge_web_generic.png' width="230">
+</a>
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
+<div align="left">
+    <h3>Features available in the application:</h3>
+    👉🏼 Get millions of quotes everyday
+	<br/>
+    👉🏼 Search quotes by different categories
+	<br/>
+    👉🏼 Search quotes by world's most famous authors
+	<br/>
+    👉🏼 Read random quotes
+	<br/>
+    👉🏼 Save quotes to local device
+	<br/>
+    👉🏼 Share quotes with your friends
+	<br/>
+    👉🏼 Share quotes on status and story on any social media from application
+	<br/>
+    👉🏼 See saved quotes in application
+	<br/>
+    👉🏼 Firebase notification and in-app messaging
+	<br/>
+    👉🏼 In-app update when new update comes
+	<br/>
+</div>
+
+<br/>
+<br/>
+
+<div style="text-align: center">
+	<table>
+		<tr>
+			<td style="text-align: center"><img src="dailyquotes/mockup/1.png" width="600"/></td>
+			<td style="text-align: center"><img src="dailyquotes/mockup/2.png" width="610"/></td>
+		</tr>
+		<tr>
+			<td style="text-align: center"><img src="dailyquotes/mockup/3.png" width="600"/></td>
+			<td style="text-align: center"><img src="dailyquotes/mockup/4.png" width="610"/></td>
+		</tr>
+		<tr>
+			<td style="text-align: center"><img src="dailyquotes/mockup/5.png" width="610"/></td>
+			<td style="text-align: center"><img src="dailyquotes/mockup/6.png" width="610"/></td>
+		</tr>
+		<tr>
+			<td style="text-align: center"><img src="dailyquotes/mockup/7.png" width="610"/></td>
+			<td style="text-align: center"><img src="dailyquotes/mockup/8.png" width="610"/></td>
+		</tr>
+	</table>
+</div>
+
+For help getting started with Flutter, view  
+[online documentation](https://flutter.io/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.

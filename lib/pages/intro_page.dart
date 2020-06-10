@@ -5,6 +5,7 @@ import 'package:firebase_in_app_messaging/firebase_in_app_messaging.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:in_app_update/in_app_update.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class IntroPage extends StatefulWidget {
@@ -13,13 +14,37 @@ class IntroPage extends StatefulWidget {
 }
 
 class _IntroPageState extends State<IntroPage> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
   static FirebaseInAppMessaging fiam = FirebaseInAppMessaging();
+  AppUpdateInfo _updateInfo;
 
   @override
   void initState() {
     super.initState();
     initFCM();
+    checkForUpdate();
+  }
+
+  Future<void> checkForUpdate() async {
+    InAppUpdate.checkForUpdate().then((info) {
+      setState(() {
+        _updateInfo = info;
+      });
+      if (_updateInfo.updateAvailable == true) {
+        InAppUpdate.performImmediateUpdate().catchError((e) => _showError(e));
+      }
+    }).catchError((e) => _showError(e));
+  }
+
+  void _showError(dynamic exception) {
+    _scaffoldKey.currentState.showSnackBar(
+      SnackBar(
+        content: Text(
+          exception.toString(),
+        ),
+      ),
+    );
   }
 
   initFCM() async {
@@ -81,7 +106,7 @@ class _IntroPageState extends State<IntroPage> {
     }
     Navigator.pushNamedAndRemoveUntil(
       context,
-      '/home',
+      '/categories',
       (r) => false,
     );
   }
@@ -92,6 +117,7 @@ class _IntroPageState extends State<IntroPage> {
     double width = 40.0;
 
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: Colors.blue[50],
       body: Container(
         margin: EdgeInsets.only(

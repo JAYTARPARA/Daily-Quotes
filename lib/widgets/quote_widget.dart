@@ -13,7 +13,6 @@ import 'package:share_it/share_it.dart';
 class QuoteWidget extends StatefulWidget {
   final GlobalKey<ScaffoldState> scaffoldKey;
   final currentIndex;
-  final listController;
   var quote = "";
   var author = "";
   var onShareClick;
@@ -23,7 +22,6 @@ class QuoteWidget extends StatefulWidget {
   QuoteWidget({
     this.scaffoldKey,
     this.currentIndex,
-    this.listController,
     this.bgColor,
     this.quote,
     this.author,
@@ -128,134 +126,116 @@ class _QuoteWidgetState extends State<QuoteWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      floatingActionButton: Visibility(
-        // visible: widget.currentIndex == 0 || downloadStart ? false : true,
-        visible: false,
-        child: FloatingActionButton(
-          onPressed: () {
-            widget.listController.animateToPage(
-              0,
-              duration: const Duration(milliseconds: 800),
-              curve: Curves.easeInOut,
-            );
-          },
-          child: Icon(
-            Icons.arrow_upward,
-          ),
-          backgroundColor: widget.bgColor,
+    return Screenshot(
+      controller: ssc,
+      child: Container(
+        height: MediaQuery.of(context).size.height,
+        color: widget.bgColor,
+        padding: EdgeInsets.only(
+          left: 30.0,
+          right: 30.0,
         ),
-      ),
-      body: Screenshot(
-        controller: ssc,
-        child: Container(
-          color: widget.bgColor,
-          padding: EdgeInsets.only(
-            left: 30.0,
-            right: 30.0,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Spacer(
-                flex: 2,
-              ),
-              Image.asset(
-                "assets/images/quote.png",
-                height: 30.0,
-                width: 30.0,
-                color: Colors.white,
-              ),
-              SizedBox(
-                height: 30.0,
-              ),
-              Text(
-                widget.quote,
-                style: GoogleFonts.lato(
-                  textStyle: TextStyle(
-                    color: Colors.white,
-                    fontSize: 30.0,
-                  ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Spacer(
+              flex: 2,
+            ),
+            Image.asset(
+              "assets/images/quote.png",
+              height: 30.0,
+              width: 30.0,
+              color: Colors.white,
+            ),
+            SizedBox(
+              height: 30.0,
+            ),
+            Text(
+              widget.quote,
+              style: GoogleFonts.lato(
+                textStyle: TextStyle(
+                  color: Colors.white,
+                  fontSize: 30.0,
                 ),
               ),
-              SizedBox(
-                height: 30.0,
-              ),
-              Text(
-                widget.author,
-                style: GoogleFonts.lato(
-                  textStyle: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
+            ),
+            SizedBox(
+              height: 30.0,
+            ),
+            Text(
+              widget.author,
+              style: GoogleFonts.lato(
+                textStyle: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-              Spacer(),
-              Visibility(
-                // visible: downloadStart ? false : true,
-                visible: true,
-                child: Container(
-                  alignment: Alignment.center,
-                  child: Visibility(
-                    visible: downloadStart ? false : true,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        InkWell(
-                          onTap: () async {
-                            await checkPermission();
-                            downLoadQuotes("download");
-                          },
-                          child: Container(
-                            margin: EdgeInsets.only(
-                              left: 10.0,
-                            ),
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              border: Border.all(
-                                width: 1,
-                                color: Colors.white,
-                              ),
-                            ),
-                            padding: EdgeInsets.all(10.0),
-                            child: Icon(
-                              Icons.save_alt,
+            ),
+            Spacer(),
+            Visibility(
+              // visible: downloadStart ? false : true,
+              visible: true,
+              child: Container(
+                alignment: Alignment.center,
+                child: Visibility(
+                  visible: downloadStart ? false : true,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      InkWell(
+                        onTap: () async {
+                          await checkPermission();
+                          downLoadQuotes("download");
+                        },
+                        child: Container(
+                          margin: EdgeInsets.only(
+                            left: 10.0,
+                          ),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              width: 1,
                               color: Colors.white,
                             ),
                           ),
+                          padding: EdgeInsets.all(10.0),
+                          child: Icon(
+                            Icons.save_alt,
+                            color: Colors.white,
+                          ),
                         ),
-                        InkWell(
-                          onTap: () async {
-                            await downLoadQuotes("share");
-                          },
-                          child: Container(
-                            margin: EdgeInsets.only(
-                              left: 10.0,
-                            ),
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              border: Border.all(
-                                width: 1,
-                                color: Colors.white,
-                              ),
-                            ),
-                            padding: EdgeInsets.all(
-                              10.0,
-                            ),
-                            child: Icon(
-                              Icons.share,
+                      ),
+                      InkWell(
+                        onTap: () async {
+                          await downLoadQuotes("share");
+                        },
+                        child: Container(
+                          margin: EdgeInsets.only(
+                            left: 10.0,
+                          ),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              width: 1,
                               color: Colors.white,
                             ),
                           ),
+                          padding: EdgeInsets.all(
+                            10.0,
+                          ),
+                          child: Icon(
+                            Icons.share,
+                            color: Colors.white,
+                          ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ),
-              Spacer(),
-            ],
-          ),
+            ),
+            Spacer(),
+          ],
         ),
       ),
     );
