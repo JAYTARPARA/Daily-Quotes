@@ -18,7 +18,7 @@
 </a>
 
 <div align="left" style="margin-bottom: 20px;">
-	<h3>Here you can see the demo of the application - <a href="https://youtu.be/tOBycJFvxXw">https://youtu.be/tOBycJFvxXw</a></h3>
+	<h3>Here you can see the demo of the application - <a href="https://youtu.be/tOBycJFvxXw" target="_blank">https://youtu.be/tOBycJFvxXw</a></h3>
 </div>
 
 <div align="left">
