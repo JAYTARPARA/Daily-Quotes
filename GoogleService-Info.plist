@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>447777474986-qle9sennkkuh0r2ago2ntdf7822sgi4j.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.447777474986-qle9sennkkuh0r2ago2ntdf7822sgi4j</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>447777474986-k8c5j97k4nfim9fs14065o54q8reqdhq.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCY19tqPfWCWlc9cU98oArdEWKyzc9pJK0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>447777474986</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.dailyquotes.jt</string>
+	<key>PROJECT_ID</key>
+	<string>daily-quotes-flutter</string>
+	<key>STORAGE_BUCKET</key>
+	<string>daily-quotes-flutter.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:447777474986:ios:f8cbdb67c0c1f9733443d3</string>
+	<key>DATABASE_URL</key>
+	<string>https://daily-quotes-flutter.firebaseio.com</string>
+</dict>
+</plist>

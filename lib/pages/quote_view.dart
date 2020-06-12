@@ -37,20 +37,18 @@ class QuoteView extends StatelessWidget {
         backgroundColor: Colors.black87,
       ),
       body: Container(
-        child: SafeArea(
-          child: Stack(
-            children: <Widget>[
-              PhotoView.customChild(
-                child: Image.file(
-                  File(this.imgPath),
-                  fit: BoxFit.cover,
-                ),
-                minScale: PhotoViewComputedScale.covered * 1.0,
-                initialScale: PhotoViewComputedScale.covered * 1.1,
-                maxScale: PhotoViewComputedScale.covered * 1.0,
+        child: Stack(
+          children: <Widget>[
+            PhotoView.customChild(
+              child: Image.file(
+                File(this.imgPath),
+                fit: BoxFit.cover,
               ),
-            ],
-          ),
+              minScale: PhotoViewComputedScale.covered * 1.0,
+              initialScale: PhotoViewComputedScale.covered * 1.1,
+              maxScale: PhotoViewComputedScale.covered * 1.0,
+            ),
+          ],
         ),
       ),
     );

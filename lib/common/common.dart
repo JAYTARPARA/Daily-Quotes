@@ -12,7 +12,7 @@ class Common {
   Future getCategories() async {
     try {
       response = await http.get(
-        "$apiGetCategory",
+        "$apiGetCategory?sortBy=quoteCount&sortOrder=desc",
       );
       return jsonDecode(response.body);
     } catch (e) {
